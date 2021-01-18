@@ -1,7 +1,7 @@
 "strict mode";
 
 var pomoTime = 25;
-var fiveMinBreak = 5;
+var fiveMinBreak = 1;
 var tenMinBreak = 10;
 var fifteenMinBreak = 15;
 
@@ -44,6 +44,7 @@ var timesUpAudio = new Audio('audio/times-up.mp3'); // duration: 10s
 var initialOffset = '0';
 var completedOffset = '1031'
 var i = 0;
+var equation = 0;
 
 /* Need initial run as interval hasn't yet occured... */
 document.querySelector(".circle_animation").style.strokeDashoffset = initialOffset;
@@ -53,7 +54,7 @@ function countdown() {
 
   interval = setInterval(function () {
     var timer = document.querySelector("#timer").innerHTML; // get the time value of the timer displayed
-    var timeInSec = parseInt(timer) * 60;
+    var timeInSec = timeChosen * 60;
     console.log("time in sec: " + timeInSec);
 
     timer = timer.split(':'); // e.g output ["25", "00"]
@@ -105,7 +106,7 @@ function countdown() {
     document.querySelector("#totalTime").innerHTML = totalTime;
 
     // this is for the animated circle
-    var equation = initialOffset+((i+1)*(completedOffset/timeInSec));
+    equation = initialOffset+((i+1)*(completedOffset/timeInSec));
     document.querySelector(".circle_animation").style.strokeDashoffset = equation;
 
     i++;
@@ -166,4 +167,7 @@ document.querySelector("#reset-btn").addEventListener('click', function () {
   document.querySelector("#timer").innerHTML = timeChosen + ":00";
 
   timesUpAudio.pause(); // when user clicks reset, pause audio
+
+  document.querySelector(".circle_animation").style.strokeDashoffset = initialOffset; // resets animated circle
+  i = 0;
 });
