@@ -1,7 +1,7 @@
 "strict mode";
 
 var pomoTime = 25;
-var fiveMinBreak = 1;
+var fiveMinBreak = 5;
 var tenMinBreak = 10;
 var fifteenMinBreak = 15;
 
