@@ -17,8 +17,14 @@ body {
   font-size: 3rem;
   font-weight: 500;
   /* background-color: blue; */
-
 }
+
+@media (max-width: 725px) {
+  #title-heading {
+    margin-bottom: 15px;
+  }
+}
+
 
 .header-container {
   padding: 3% 15%;
@@ -287,6 +293,7 @@ svg {
 
 /* footer */
 footer {
+  width: 100vw;
   height: 10vh;
   display: flex;
   align-items: center;
@@ -295,7 +302,9 @@ footer {
 }
 
 footer>p {
+  width: 70vw;
   color: #979797;
+  text-align: center;
 }
 
 footer>p>span {
